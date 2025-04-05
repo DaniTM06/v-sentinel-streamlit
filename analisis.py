@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from collections import Counter
+from wordcloud import WordCloud
 
 def analisis():
     st.title("Análisis Visual del Sentimiento")
@@ -43,7 +44,7 @@ def analisis():
         colormap='plasma'
     ).generate(text_keywords)
 
-    st.image(wordcloud.to_array(), use_column_width=True)
+    st.image(wordcloud.to_array(), use_container_width=True)
 
     # Sección 3: Relación entre sentimientos positivos y negativos
     st.subheader("Comparación de Sentimientos Positivos y Negativos")
@@ -136,8 +137,12 @@ def main():
         st.title("Aplicación para monitorear las opiniones de los usuarios sobre productos, servicios y temas específicos.")
         st.markdown("Haciendo uso de Procesamiento de Lenguaje Natural (NLP) e Inteligencia Artificial (IA), se analizará la información extraída de Twitter (X.com), la cual será mostrada en las distintas secciones.")
         st.title("Contenidos de la sección de análisis:")
-        st.markdown("- **Análisis Gráfico:** En esta sección se podrá ver de manera gráfica las distintas valoraciones sobre el producto seleccionado.")
-        st.markdown("- **Análisis Técnico:** Aquí se podrá ver de manera más precisa y en formato texto las conclusiones obtenidas tras realizar el análisis.")
+        st.markdown("Sección 1: Conteo de emociones" )
+        st.markdown("Sección 2: Nube de palabras con keywords" )
+        st.markdown("Sección 3: Relación entre sentimientos positivos y negativos" )
+        st.markdown( "Sección 4: Gráfico de barras de palabras clave en comentarios negativos" )
+        st.markdown("Sección 5: Muestra de ejemplos reales" )
+        st.markdown("Sección 6: Conclusión")
 
     elif option == "Analisis":
         analisis()
