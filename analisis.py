@@ -74,7 +74,8 @@ def analisis():
     text_negative_keywords = ' '.join(negative_comments['predicted_keyword'].dropna().astype(str))
 
     # Contar las apariciones de las palabras clave
-    keyword_counts = Counter(text_negative_keywords.split())
+    keyword_counts = Counter(word for word in text_negative_keywords.split() 
+                        if word.lower() != 'iphone')
 
     # Convertir el Counter en un DataFrame
     keyword_df = pd.DataFrame(keyword_counts.items(), columns=['Palabra Clave', 'Apariciones'])
